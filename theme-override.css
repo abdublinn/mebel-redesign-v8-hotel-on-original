@@ -1,0 +1,204 @@
+/* =====================================================
+   v8 — Hotel Lobby тема для abdublinn.github.io
+   Палитра: лесной зелёный + слоновая кость + шампань
+   Шрифты: Cormorant Garamond + Inter
+   Накладывается поверх собранного CSS — не трогает
+   структуру, элементы, фото, динамику, анимации.
+   ===================================================== */
+
+/* ===== shadcn/ui CSS variables (HSL) ===== */
+:root {
+  --background: 110 17% 14% !important;       /* forest #1F2A1E */
+  --foreground: 40 50% 90% !important;         /* ivory #F0E8D9 */
+  --card: 106 15% 18% !important;              /* surface #2A3527 */
+  --card-foreground: 40 50% 90% !important;
+  --popover: 106 15% 18% !important;
+  --popover-foreground: 40 50% 90% !important;
+  --primary: 38 47% 61% !important;            /* champagne #C9A96E */
+  --primary-foreground: 110 17% 14% !important;
+  --secondary: 106 15% 22% !important;
+  --secondary-foreground: 40 50% 90% !important;
+  --muted: 106 15% 22% !important;
+  --muted-foreground: 40 35% 70% !important;
+  --accent: 38 47% 61% !important;
+  --accent-foreground: 110 17% 14% !important;
+  --border: 38 25% 30% !important;
+  --input: 38 25% 30% !important;
+  --ring: 38 47% 61% !important;
+  --destructive: 0 60% 45% !important;
+  --destructive-foreground: 40 50% 90% !important;
+  --sidebar-background: 110 17% 12% !important;
+  --sidebar-foreground: 40 50% 90% !important;
+  --sidebar-primary: 38 47% 61% !important;
+  --sidebar-primary-foreground: 110 17% 14% !important;
+  --sidebar-accent: 106 15% 22% !important;
+  --sidebar-accent-foreground: 40 50% 90% !important;
+  --sidebar-border: 38 25% 30% !important;
+  --sidebar-ring: 38 47% 61% !important;
+}
+
+/* ===== Body / html ===== */
+html, body, #root {
+  background: hsl(var(--background)) !important;
+  color: hsl(var(--foreground)) !important;
+}
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  color-scheme: dark;
+}
+
+/* ===== Headings → Cormorant Garamond ===== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.015em !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+/* Tailwind font utilities that may target Wix Madefor Display */
+.font-display,
+[class*="font-['Wix"],
+[class*="font-['Commissioner"] {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  letter-spacing: -0.015em !important;
+}
+
+/* Bold weights of body text — keep Inter but moderate weight */
+.font-semibold, .font-bold, .font-extrabold {
+  font-family: 'Inter', system-ui, sans-serif !important;
+}
+
+/* ===== Brand orange → champagne ===== */
+.bg-brand,
+.bg-brand\/90 { background-color: #C9A96E !important; color: #1F2A1E !important; }
+.bg-brand\/20 { background-color: rgba(201,169,110,0.2) !important; }
+.bg-brand\/10 { background-color: rgba(201,169,110,0.1) !important; }
+.bg-brand\/5  { background-color: rgba(201,169,110,0.06) !important; }
+.text-brand   { color: #DDC289 !important; }
+.text-brand\/30 { color: rgba(221,194,137,0.45) !important; }
+.border-brand { border-color: #C9A96E !important; }
+.border-brand\/20 { border-color: rgba(201,169,110,0.2) !important; }
+.border-brand\/30 { border-color: rgba(201,169,110,0.3) !important; }
+.fill-brand   { fill: #C9A96E !important; }
+.accent-brand { accent-color: #C9A96E !important; }
+.hover\:bg-brand\/5:hover { background-color: rgba(201,169,110,0.08) !important; }
+.hover\:bg-brand\/90:hover { background-color: #B89A5A !important; }
+
+/* ===== Hardcoded arbitrary tailwind colours ===== */
+.bg-\[\#ff6b00\]        { background-color: #C9A96E !important; color: #1F2A1E !important; }
+.bg-\[\#ff6b00\]\/30    { background-color: rgba(201,169,110,0.3) !important; }
+.bg-\[\#f5f0eb\]        { background-color: hsl(106 15% 18%) !important; color: hsl(40 50% 90%) !important; }
+.bg-\[\#f8f5f1\]        { background-color: hsl(106 15% 18%) !important; color: hsl(40 50% 90%) !important; }
+.text-\[\#E8501A\],
+.text-\[\#e8501a\]      { color: #DDC289 !important; }
+
+/* ===== Generic light backgrounds → forest ===== */
+.bg-white, .bg-gray-50, .bg-zinc-50, .bg-slate-50, .bg-stone-50, .bg-neutral-50 {
+  background-color: hsl(110 17% 14%) !important;
+  color: hsl(40 50% 90%) !important;
+}
+.bg-gray-100, .bg-zinc-100, .bg-slate-100, .bg-stone-100, .bg-neutral-100 {
+  background-color: hsl(106 15% 18%) !important;
+  color: hsl(40 50% 90%) !important;
+}
+.bg-gray-200, .bg-zinc-200, .bg-slate-200 {
+  background-color: hsl(106 15% 22%) !important;
+}
+
+/* ===== Dark text on now-dark BG → ivory ===== */
+.text-black,
+.text-gray-900, .text-gray-800, .text-gray-700,
+.text-zinc-900, .text-zinc-800, .text-zinc-700,
+.text-slate-900, .text-slate-800, .text-slate-700,
+.text-neutral-900, .text-neutral-800, .text-neutral-700 {
+  color: hsl(40 50% 90%) !important;
+}
+.text-gray-600, .text-gray-500, .text-gray-400,
+.text-zinc-600, .text-zinc-500, .text-zinc-400,
+.text-slate-600, .text-slate-500, .text-slate-400,
+.text-neutral-600, .text-neutral-500, .text-neutral-400 {
+  color: hsl(40 30% 70%) !important;
+}
+.text-gray-300, .text-zinc-300 {
+  color: hsl(40 30% 60%) !important;
+}
+
+/* ===== Borders default → champagne hairlines ===== */
+.border, .border-t, .border-b, .border-l, .border-r,
+.border-2, .border-y, .border-x,
+.border-gray-100, .border-gray-200, .border-gray-300,
+.border-zinc-100, .border-zinc-200, .border-zinc-300,
+.border-slate-100, .border-slate-200, .border-slate-300,
+.border-neutral-100, .border-neutral-200,
+.divide-y > :not(:last-child),
+.divide-x > :not(:last-child) {
+  border-color: hsl(38 25% 30%) !important;
+}
+
+/* ===== Yellow stars (rating) — keep visible ===== */
+.text-yellow-400, .text-yellow-500, .fill-yellow-400, .fill-yellow-500 {
+  color: #DDC289 !important;
+  fill: #DDC289 !important;
+}
+
+/* ===== Headers / fixed top bar — slight glass ===== */
+header[class*="bg-white"], nav[class*="bg-white"] {
+  background-color: rgba(31,42,30,0.85) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid hsl(38 25% 25%) !important;
+}
+
+/* ===== Inputs / forms ===== */
+input, textarea, select {
+  background-color: hsl(106 15% 18%) !important;
+  border: 1px solid hsl(38 25% 30%) !important;
+  color: hsl(40 50% 90%) !important;
+}
+input::placeholder, textarea::placeholder {
+  color: hsl(40 30% 60%) !important;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: hsl(38 47% 61%) !important;
+  outline: none !important;
+}
+
+/* ===== Cards & rounded panels ===== */
+.bg-card, [class*="card"] .bg-white, .shadow, .shadow-sm, .shadow-md, .shadow-lg {
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4) !important;
+}
+.rounded, .rounded-md, .rounded-lg, .rounded-xl, .rounded-2xl, .rounded-3xl {
+  border-radius: 2px !important;
+}
+.rounded-full {
+  border-radius: 9999px !important; /* keep round avatars/badges */
+}
+
+/* ===== Hero / heroes overlay (если есть .bg-gradient-to) — оставляем как есть, фото сами тёмные ===== */
+
+/* ===== Footer typically dark already — keep but tint ===== */
+footer {
+  background-color: hsl(110 17% 10%) !important;
+  color: hsl(40 30% 70%) !important;
+}
+footer h1, footer h2, footer h3, footer h4 {
+  color: hsl(40 50% 90%) !important;
+}
+
+/* ===== Italic em accents — make champagne for hero one-liners ===== */
+em, i {
+  color: #DDC289;
+  font-style: italic;
+}
+
+/* ===== Selection ===== */
+::selection {
+  background: #DDC289;
+  color: #1F2A1E;
+}
+
+/* ===== Scrollbar (webkit) ===== */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: hsl(106 15% 18%); }
+::-webkit-scrollbar-thumb { background: hsl(38 25% 30%); border-radius: 0; }
+::-webkit-scrollbar-thumb:hover { background: hsl(38 47% 61%); }
